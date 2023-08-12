@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #010002;
+  color: #fea775;
+}
+
+/*Header*/
+.header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #260b2c;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+/*Top*/
+.title {
+  text-align: center;
+}
+
+.title h1 {
+  font-weight: 900;
+  font-size: 50px;
+  margin: 20px;
+  margin-bottom: 1px;
+}
+
+/*Body of the HTML*/
+.body {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/*Main*/
+
+/*Optional*/
+
+/*Output*/
+
+/*Others*/
+fieldset{
+  margin: 20px;
+  width: 400px;
+  height: 500px;
+  max-width: 400px;
+  max-height: 500px;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+}
+
+.submit input {
+  padding: 20px 40px;
+  font-size: large;
+  
+}
+
