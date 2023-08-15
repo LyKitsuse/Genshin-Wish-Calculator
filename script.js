@@ -12,7 +12,7 @@ const hardPity = 90;            // Hard Pity Count
 
 let battlepassOwnership = false;  // If Owns the Battle Pass      REQUIRES INPUT
 let welkinOwnership = false;      // If Owns Welkin               REQUIRES INPUT
-let fiftyFifty = false;
+let fiftyFifty = false;           // If not guaranteed            REQUIRES INPUT
 
 let currentPrimo = 0;     // Current Primogem Count               REQUIRES INPUT
 let currentPity = 0;      // Current Pity Count                   REQUIRES INPUT
@@ -20,6 +20,8 @@ let ifCount = 0;          // Current Intertwined Fate Count       REQUIRES INPUT
 let stardustCount = 0;    // Current Stardust Count               REQUIRES INPUT
 let starglitterCount = 0; // Current Starglitter Count            REQUIRES INPUT
 let numDays = 0           // Predicted Wishing Date               REQUIRES INPUT
+
+// TODO Make const variables into CAPS LOCK
 
 function primoToFates(currentPrimo, primoConversion) {   // Converts the input PrimoCount to Fates
   return currentPrimo / primoConversion;
