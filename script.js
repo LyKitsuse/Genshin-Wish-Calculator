@@ -1,85 +1,104 @@
-const maintenanceRewards = 600; // Maintenance Rewards
-const liveRewards = 300;        // Livestrema Rewards
-const events = 420 * 3;         // Minor Event
-const mainEvent = 740;          // Major Event
-const dailiesRewards = 60;      // Every Day Comissions
-const characterTrials = 20 * 4; // 4 Character Trials per Patch
+const MAINTENANCE_REWARDS = 600; // Maintenance Rewards
+const LIVE_REWARDS = 300;        // Livestrema Rewards
+const EVENTS = 420 * 3;         // Minor Event
+const MAIN_EVENT = 740;          // Major Event
+const DAILIES_REWARDS = 60;      // Every Day Comissions
+const CHARACTER_TRIALS = 20 * 4; // 4 Character Trials per Patch
 
-const primoConversion = 160;    // Primo to Fates
-const patchDays = 42;           // Number of Days per Update
-const softPity = 74;            // Soft Pity Count
-const hardPity = 90;            // Hard Pity Count
+const PRIMO_CONVERSION = 160;    // Primo to Fates
+const PATCH_DAYS = 42;           // Number of Days per Update
+const SOFTPITY = 74;            // Soft Pity Count
+const HARDPITY = 90;            // Hard Pity Count
 
 let battlepassOwnership = false;  // If Owns the Battle Pass      REQUIRES INPUT
 let welkinOwnership = false;      // If Owns Welkin               REQUIRES INPUT
 let fiftyFifty = false;           // If not guaranteed            REQUIRES INPUT
 
-let currentPrimo = 0;     // Current Primogem Count               REQUIRES INPUT
+let currentPrimo = 0;     // Current Primogem Count for dailies   REQUIRES INPUT
 let currentPity = 0;      // Current Pity Count                   REQUIRES INPUT
 let ifCount = 0;          // Current Intertwined Fate Count       REQUIRES INPUT
 let stardustCount = 0;    // Current Stardust Count               REQUIRES INPUT
 let starglitterCount = 0; // Current Starglitter Count            REQUIRES INPUT
 let numDays = 0           // Predicted Wishing Date               REQUIRES INPUT
 
-// TODO Make const variables into CAPS LOCK
-
-function primoToFates(currentPrimo, primoConversion) {   // Converts the input PrimoCount to Fates
-  return currentPrimo / primoConversion;
+// TODO: Create a function that converts the primogem count into fates (For Primo Conversion)
+function primosToFates(primos) {
+  return primos / PRIMO_CONVERSION;
 }
 
-// TODO: Make a converion for days to fate according to Maintenance, 
-// livestreams, events, character trials, and daily comissions.
-// Also add if welkin and battlepass is included.
-function fateConversion(days) {
-  let output = 0;
-  let patchCount = days / patchDays;
+// TODO: Create a function that takes the number of input days and starglitter/dust into primogems
+// TODO: Add the Battlepass/Welkin Moon on the same function (1 Battlepass & Welkin only)
+function dailiesToFates(numDays, stardustCount, starglitterCount) {
+  let primogemCount = 0;
+  // Input Days 
+  primogemCount += (numDays * DAILIES_REWARDS);    
 
-  output += days * dailiesRewards;  // Days multiplied by the comissions rewards
-  
-  // TODO: A loop to check if there are more patch days,
-  for (let i = 0; i < patchCount; i++) {
-    output += liveRewards + maintenanceRewards;
-    output += events + mainEvent;
-    output += characterTrials;
+  // Input Starglitter + Dust
+  if (stardustCount >= 75) {
+    // Stardust must not exceed more than 5
+    let currentStarDust = stardustCount;
+    let fateCount = 0;
+    for (let i = 0; i < 5; i++) {
+      currentStarDust -= 75;
+      if (currentStarDust <= 0) {
+        break;
+      }
+      fateCount++;
+    }
+    primogemCount += fateCount * 160;
+  }
+  if (starglitterCount >= 5) {
+    primogemCount += starglitterCount / 5;
+  }
+
+  // Battlepass + Welkin Moon
+  if (battlepassOwnership) {
+    primogemCount += 680 + (4 * PRIMO_CONVERSION);
   }
 
   if (welkinOwnership) {
-    if (days >= 30) {
-      output += 90 * 30;
-    }
-    else {
-      output += 90 * days;
-    }
+    primogemCount += (30 * PRIMO_CONVERSION);
   }
 
-  if (battlepassOwnership) {
-    output += (160 * 4) + 680;
-  }
-
-  return primoToFates(output, primoConversion);
+  return primogemCount;
 }
 
-// TODO: Add Abyss Detector
+// TODO: Make a function that takes the number of days and takes the 
+// events + trials + maintenance + stream rewards on each patch
+function eventsAndRewards(numDays) {
+  let primogemCount = 0;
 
-// TODO: Make a function that determines the predicted Pity of the user
-// Make it so that it shows how many Full Cycles (90 Wishes) 
-// and Quarter Cycles (75 Wishes) it will take. 
-// Also add the predicted Pity it will land on after the cycles for both (75 and 90)
+  // Days to Patches
+  let patchCount = 0;
+  if (numDays > PATCH_DAYS) {
+    patchCount = numDays/PATCH_DAYS;
+  }
 
-// Also Add the Starglitter and Stardusts counts when wishing, also apply the days for stardust
+  // USes the PatchCount to get the Event, Trial, Maintenance, and Live Rewards per patch
+  for (let i 0; i < patchCount; i++) {
+    primogemCount += EVENTS + CHARACTER_TRIALS + MAINTENANCE_REWARDS + LIVE_REWARDS;
+  }
+  
+  return primogemCount;
+}
 
+let abyssFloor9 = 0;
+let abyssFloor10 = 0;
+let abyssFloor11 = 0;
+let abyssFloor12 = 0;
 
-let fateCount = primoToFates(currentPrimo, primoConversion) 
-  + fateConversion(numDays); // Estimated Total Fate Count
+// TODO: Create a function that detects the number of stars on spiral abyss and convert it into primos
+function spiralAbyssCalculator() {
 
-/**
- * Ask User for Primo Count 
- * Ask User for Current Pity
- * Ask User for Days Left
- * 
- * Optional
- * Ask User for Star(Dust/Glitter) Count
- * Ask User for Current Fate Count
- * 
- */
+}
 
+// TODO: A function that checks possible conversions of Starglitter/Dust after wishing
+function starDetection(stardustCount, starglitterCount) {
+
+}
+
+// TODO: Main fucntion to complete the calculation 
+//(Where the current Pity will determine the output as well as add the current IF)
+function main() {
+
+}
