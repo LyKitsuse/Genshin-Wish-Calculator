@@ -26,8 +26,8 @@ function primosToFates(primos) {
   return primos / PRIMO_CONVERSION;
 }
 
-// TODO: Create a function that takes the number of input days and starglitter/dust into primogems
-// TODO: Add the Battlepass/Welkin Moon on the same function (1 Battlepass & Welkin only)
+// A function that takes the number of input days and starglitter/dust into primogems
+// Adds the Battlepass/Welkin Moon on the same function (1 Battlepass & Welkin only)
 function dailiesToFates(numDays, stardustCount, starglitterCount) {
   let primogemCount = 0;
   // Input Days 
@@ -63,7 +63,7 @@ function dailiesToFates(numDays, stardustCount, starglitterCount) {
   return primogemCount;
 }
 
-// TODO: Make a function that takes the number of days and takes the 
+// A function that takes the number of days and takes the 
 // events + trials + maintenance + stream rewards on each patch
 function eventsAndRewards(numDays) {
   let primogemCount = 0;
@@ -88,17 +88,37 @@ let abyssFloor11 = 0;
 let abyssFloor12 = 0;
 
 // TODO: Create a function that detects the number of stars on spiral abyss and convert it into primos
-function spiralAbyssCalculator() {
-
+function spiralAbyssCalculator(abyssFloor9, abyssFloor10, abyssFloor11, abyssFloor12) {
+  let primogemCount = 0;
+  // Every 3 full stars in the abyss + 50; Max 9 Stars
+  // Floor 9
+  primogemCount += (abyssFloor9 / 3) * 50;
+  // Floor 10
+  primogemCount += (abyssFloor10 / 3) * 50;
+  // Floor 11
+  primogemCount += (abyssFloor11 / 3) * 50;
+  // Floor 12
+  primogemCount += (abyssFloor12 / 3) * 50;
+  return primogemCount;
 }
 
 // TODO: A function that checks possible conversions of Starglitter/Dust after wishing
-function starDetection(stardustCount, starglitterCount) {
-
+function starDetection(stardustCount, starglitterCount, wishCount, numDays) {
+  // Converts wishes to number of 4 stars
+  // Converts wishes to number of 5 stars 
+  // Converts days to stardust
 }
 
 // TODO: Main fucntion to complete the calculation 
 //(Where the current Pity will determine the output as well as add the current IF)
-function main() {
+function main(ifCount, currentPrimo) {
+  // Convert current primos to IF
+  ifCount = currentPrimo / 160;
 
+  // Get the Primos from abyss, events, dailies function and convert to IF
+
+
+  // Get starDetection from days
+
+  // Count number of wishes to 75/90
 }
