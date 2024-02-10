@@ -10,9 +10,9 @@ const PATCH_DAYS = 42;           // Number of Days per Update
 const SOFTPITY = 74;            // Soft Pity Count
 const HARDPITY = 90;            // Hard Pity Count
 
-let battlepassOwnership = false;  // If Owns the Battle Pass      REQUIRES INPUT
-let welkinOwnership = false;      // If Owns Welkin               REQUIRES INPUT
-let fiftyFifty = false;           // If not guaranteed            REQUIRES INPUT
+let battlepassOwnership = document.querySelector('#battlepassOwnership');  // If Owns the Battle Pass      REQUIRES INPUT
+let welkinOwnership = document.querySelector('#welkinOwnership');      // If Owns Welkin               REQUIRES INPUT
+let fiftyFifty = document.querySelector('#fiftyFifty');           // If not guaranteed            REQUIRES INPUT
 
 let currentPrimos = document.querySelector('#currentPrimo');         // Current Primogem Count for dailies   REQUIRES INPUT
 let currentPity = document.querySelector('#currentPity');           // Current Pity Count                   REQUIRES INPUT
@@ -53,14 +53,15 @@ function dailiesToFates() {
     primogemCount += parseInt(starglitterCount.value) / 5;
   }
 
-  // // Battlepass + Welkin Moon
-  // if (battlepassOwnership) {
-  //   primogemCount += 680 + (4 * PRIMO_CONVERSION);
-  // }
+  // Battlepass + Welkin Moon
+  if (battlepassOwnership.checked) {
+    primogemCount += 680 + (4 * PRIMO_CONVERSION);
+  }
 
-  // if (welkinOwnership) {
-  //   primogemCount += (30 * PRIMO_CONVERSION);
-  // }
+  if (welkinOwnership.checked) {
+    // Change so that it can get the number of days with welkin
+    primogemCount += (30 * 90);
+  }
 
   return primogemCount;
 }
@@ -114,7 +115,20 @@ function starDetection(stardustCount, starglitterCount, wishCount, numDays) {
 // Calculate when btn is pressed
 calculateBtn.onclick = calculate;
 
+// DOM Stuff
 let totalPrimoCount = document.createElement("h4");
+
+let totalPrimoAppend = document.createElement('h4');
+let totalPrimoDOM = document.querySelector('#totalPrimogemCount');
+
+let wishCountAppend = document.createElement('h4');
+let wishCountDOM = document.querySelector('#wishCount');
+
+let fourStarAppend= document.createElement('h4');
+let fourStarDOM = document.querySelector('#fourStars');
+
+let softPityAppend = document.createElement("h4");
+let softPityDOM = document.querySelector('#softPity');
 
 let hardPityAppend = document.createElement("h4");
 let hardPityDOM = document.querySelector('#hardPity');
@@ -127,26 +141,30 @@ function calculate() {
   // let abyss = spiralAbyssCalculator();
 
   // let totalPrimo = dailies + events + abyss;
-  let totalPrimo = dailies + events;
+  let totalPrimo = dailies + events + parseInt(currentPrimos.value);
   let totalFates = primosToFates(totalPrimo);
 
-  let hardPityCount = 0;
 
-  while((totalFates/HARDPITY) == 0) {
-    hardPityCount++;
-  }
 
-  alert(hardPityCount);
-  // hardPityDOM.append(hardPityAppend);
-  // hardPityAppend.textContent = hardPityCount;
+  // DOM Print
+  let softPityCount = totalFates/SOFTPITY;
+  let hardPityCount = totalFates/HARDPITY;
+  let fourStarCount = totalFates/10
 
-  // Convert current primos to IF
+  totalPrimoDOM.append(totalPrimoAppend);
+  totalPrimoAppend.textContent = totalPrimo;
 
-  // Get the Primos from abyss, events, dailies function and convert to IF
+  wishCountDOM.append(wishCountAppend);
+  wishCountAppend.textContent = totalFates;
 
-  // Get starDetection from days
+  fourStarDOM.append(fourStarAppend);
+  fourStarAppend.textContent = fourStarCount;
 
-  // Count number of wishes to 75/90
+  softPityDOM.append(softPityAppend);
+  softPityAppend.textContent = softPityCount.toFixed(3);
+
+  hardPityDOM.append(hardPityAppend);
+  hardPityAppend.textContent = hardPityCount.toFixed(3);
 }
 
 
