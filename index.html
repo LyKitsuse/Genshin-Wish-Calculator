@@ -5,41 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
-  <title>Genshin Wish Predictor</title>
+  <title>Genshin Wish Calculator</title>
 </head>
 <body>
-  <div class="top">
-    <div class="header">
-      <div>Logo</div>
-      <a href="https://github.com/LyKitsuse/Genshin-Wish-Predictor"><div>github repo</div></a>
-    </div>
+  <div class="top">  
     <div class="title">
-      <h1>Genshin Wish Predictor</h1>
-      <p>A Genshin Impact Wish Predictor for predicting incoming 5 stars and the amount of wishes left.</p>
+      <h1>Genshin Wish Calcluator</h1>
+      <p>[Insert Logos]</p>
     </div> 
   </div>
+
   <div class="body">
     <div class="main">
-      <fieldset>
-        <h3>Required 1</h3>
-        <input type="text" required>
-      </fieldset>
-    </div>
-    <div class="optional">
-      <fieldset>
-        <h3>Required 2</h3>
-        <input type="text" required>
-      </fieldset>
-    </div>
-    <div class="output">
-      <fieldset>
-        <h3>Required 3</h3>
-        <input type="text" required>
+      <fieldset class="main field">
+        <h3 class="h">Input 1</h3>
+        <h4><label for="currentPity" class="input">Current Pity <input type="text" value="0" id="currentPity"></label></h4>
+        <h4><label for="currentPrimo" class="input">Current Primo <input type="text" value="0" id="currentPrimo"></label></h4>
+        <h4><label for="ifCount" class="input">Intertwined Fate Count <input type="text" value="0" id="ifCount"></label></h4>
+        <h4><label for="stardustCount" class="input">Stardust Count <input type="text" value="0" id="stardustCount"></label></h4>
+        <h4><label for="starglitterCount" class="input">Starglitter Count <input type="text" value="0" id="starglitterCount"></label></h4>
+        <h4><label for="numDays" class="input">Days Input <input type="text" value="0" id="numDays"></label></h4>
+        <h4><div class="checkbox"><input type="checkbox" id="battlepassOwnership"><label for="battlepassOwnership">Battlepass </label></div></h4>
+        <h4><div class="checkbox"><input type="checkbox" id="welkingOwnership"><label for="welkingOwnership">Welkin Moon </label></div></h4>
+        <h4><div class="checkbox"><input type="checkbox" id="fiftyFifty"><label for="fiftyFifty">50/50 </label></div></h4>
       </fieldset>
     </div>
   </div>
-  <div class="submit">
+  
+  <div class="abyss">
+    <fieldset class="abyss field">
+      <h3>Hello</h3>
+    </fieldset>
+  </div>
+
+  <div class="submit" id="submit">
     <input type="submit">
+  </div>
+
+  <hr style="width: 350px; margin-bottom: 50px;">
+
+  <div class="output">
+    <fieldset class="output field">
+      <h3 class="h">Main Output</h3>
+      <h4>Wish Count: </h4>
+      <h4>4 Stars: </h4>
+      <h4>Soft Pity: </h4>
+      <h4>Hard Pity: </h4>
+    </fieldset>
   </div>
 </body>
 </html>

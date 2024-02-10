@@ -75,7 +75,7 @@ function eventsAndRewards(numDays) {
   }
 
   // USes the PatchCount to get the Event, Trial, Maintenance, and Live Rewards per patch
-  for (let i 0; i < patchCount; i++) {
+  for (let i = 0; i < patchCount; i++) {
     primogemCount += EVENTS + CHARACTER_TRIALS + MAINTENANCE_REWARDS + LIVE_REWARDS;
   }
   
@@ -116,7 +116,7 @@ function main(ifCount, currentPrimo) {
   ifCount = currentPrimo / 160;
 
   // Get the Primos from abyss, events, dailies function and convert to IF
-
+  
 
   // Get starDetection from days
 

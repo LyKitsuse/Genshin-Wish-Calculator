@@ -1,24 +1,28 @@
 body {
   margin: 0;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #010002;
   color: #fea775;
+  background-image: url(assets/celestiaDoor.jpg);
+  background-size: cover;
+  background-position: -560px ;
+  
 }
 
-/*Header*/
-.header {
+/*Footer*/
+.footer {
   display: flex;
   flex: 1;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  margin-top: 100px;
   background-color: #260b2c;
   font-size: 25px;
   font-weight: bold;
   color: white;
 }
 
-.header a {
+.footer a {
   text-decoration: none;
   color: white;
 }
@@ -36,35 +40,61 @@ body {
 }
 
 /*Body of the HTML*/
-.body {
+.body, .abyss, .output {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
 }
 
-/*Main*/
+/*Inputs*/
+input {
+  width: 100px; 
+}
 
-/*Optional*/
+.input {
+  display: block;
+}
 
-/*Output*/
+.checkbox {
+  display: block;
+}
 
 /*Others*/
-fieldset{
-  margin: 20px;
+.h {
+  display: flex;
+  justify-content: center;
+}
+
+/*Submit*/
+.submit {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.submit input {
+  padding: 10px 60px;
+  font-size: large;
+}
+
+/*Fields*/
+.main.field {
   width: 400px;
   height: 500px;
   max-width: 400px;
   max-height: 500px;
 }
 
-.submit {
-  display: flex;
-  justify-content: center;
+.abyss.field {
+  width: 400px;
+  height: 300px;
 }
 
-.submit input {
-  padding: 20px 40px;
-  font-size: large;
-  
+.output.field {
+  width: 400px;
+  height: 300px;
 }
 
