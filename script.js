@@ -14,12 +14,14 @@ let battlepassOwnership = false;  // If Owns the Battle Pass      REQUIRES INPUT
 let welkinOwnership = false;      // If Owns Welkin               REQUIRES INPUT
 let fiftyFifty = false;           // If not guaranteed            REQUIRES INPUT
 
-let currentPrimo = 0;     // Current Primogem Count for dailies   REQUIRES INPUT
-let currentPity = 0;      // Current Pity Count                   REQUIRES INPUT
-let ifCount = 0;          // Current Intertwined Fate Count       REQUIRES INPUT
-let stardustCount = 0;    // Current Stardust Count               REQUIRES INPUT
-let starglitterCount = 0; // Current Starglitter Count            REQUIRES INPUT
-let numDays = 0           // Predicted Wishing Date               REQUIRES INPUT
+let currentPrimos = document.querySelector('#currentPrimo');         // Current Primogem Count for dailies   REQUIRES INPUT
+let currentPity = document.querySelector('#currentPity');           // Current Pity Count                   REQUIRES INPUT
+let ifCount = document.querySelector('#ifCount');                    // Current Intertwined Fate Count       REQUIRES INPUT
+let stardustCount = document.querySelector('#stardustCount');       // Current Stardust Count               REQUIRES INPUT
+let starglitterCount = document.querySelector('#starglitterCount'); // Current Starglitter Count            REQUIRES INPUT
+let numDays = document.querySelector('#numDays');                   // Predicted Wishing Date               REQUIRES INPUT
+
+let calculateBtn = document.querySelector('#calculate');
 
 // TODO: Create a function that converts the primogem count into fates (For Primo Conversion)
 function primosToFates(primos) {
@@ -28,50 +30,50 @@ function primosToFates(primos) {
 
 // A function that takes the number of input days and starglitter/dust into primogems
 // Adds the Battlepass/Welkin Moon on the same function (1 Battlepass & Welkin only)
-function dailiesToFates(numDays, stardustCount, starglitterCount) {
+function dailiesToFates() {
   let primogemCount = 0;
   // Input Days 
-  primogemCount += (numDays * DAILIES_REWARDS);    
+  primogemCount += (parseInt(numDays.value) * DAILIES_REWARDS);    
 
   // Input Starglitter + Dust
-  if (stardustCount >= 75) {
+  if (parseInt(stardustCount.value) >= 75) {
     // Stardust must not exceed more than 5
-    let currentStarDust = stardustCount;
+    let currentStarDust = parseInt(stardustCount.value);
     let fateCount = 0;
     for (let i = 0; i < 5; i++) {
       currentStarDust -= 75;
+      fateCount++;
       if (currentStarDust <= 0) {
         break;
       }
-      fateCount++;
     }
     primogemCount += fateCount * 160;
   }
-  if (starglitterCount >= 5) {
-    primogemCount += starglitterCount / 5;
+  if (parseInt(starglitterCount.value) >= 5) {
+    primogemCount += parseInt(starglitterCount.value) / 5;
   }
 
-  // Battlepass + Welkin Moon
-  if (battlepassOwnership) {
-    primogemCount += 680 + (4 * PRIMO_CONVERSION);
-  }
+  // // Battlepass + Welkin Moon
+  // if (battlepassOwnership) {
+  //   primogemCount += 680 + (4 * PRIMO_CONVERSION);
+  // }
 
-  if (welkinOwnership) {
-    primogemCount += (30 * PRIMO_CONVERSION);
-  }
+  // if (welkinOwnership) {
+  //   primogemCount += (30 * PRIMO_CONVERSION);
+  // }
 
   return primogemCount;
 }
 
 // A function that takes the number of days and takes the 
 // events + trials + maintenance + stream rewards on each patch
-function eventsAndRewards(numDays) {
+function eventsAndRewards() {
   let primogemCount = 0;
 
   // Days to Patches
   let patchCount = 0;
-  if (numDays > PATCH_DAYS) {
-    patchCount = numDays/PATCH_DAYS;
+  if (parseInt(numDays.value) > PATCH_DAYS) {
+    patchCount = parseInt(numDays.value)/PATCH_DAYS;
   }
 
   // USes the PatchCount to get the Event, Trial, Maintenance, and Live Rewards per patch
@@ -109,16 +111,42 @@ function starDetection(stardustCount, starglitterCount, wishCount, numDays) {
   // Converts days to stardust
 }
 
+// Calculate when btn is pressed
+calculateBtn.onclick = calculate;
+
+let totalPrimoCount = document.createElement("h4");
+
+let hardPityAppend = document.createElement("h4");
+let hardPityDOM = document.querySelector('#hardPity');
+
 // TODO: Main fucntion to complete the calculation 
 //(Where the current Pity will determine the output as well as add the current IF)
-function main(ifCount, currentPrimo) {
+function calculate() {
+  let dailies = dailiesToFates();
+  let events = eventsAndRewards();
+  // let abyss = spiralAbyssCalculator();
+
+  // let totalPrimo = dailies + events + abyss;
+  let totalPrimo = dailies + events;
+  let totalFates = primosToFates(totalPrimo);
+
+  let hardPityCount = 0;
+
+  while((totalFates/HARDPITY) == 0) {
+    hardPityCount++;
+  }
+
+  alert(hardPityCount);
+  // hardPityDOM.append(hardPityAppend);
+  // hardPityAppend.textContent = hardPityCount;
+
   // Convert current primos to IF
-  ifCount = currentPrimo / 160;
 
   // Get the Primos from abyss, events, dailies function and convert to IF
-  
 
   // Get starDetection from days
 
   // Count number of wishes to 75/90
 }
+
+

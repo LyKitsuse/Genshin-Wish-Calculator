@@ -2,9 +2,7 @@ body {
   margin: 0;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #fea775;
-  background-image: url(assets/celestiaDoor.jpg);
-  background-size: cover;
-  background-position: -560px ;
+  
   
 }
 
@@ -50,8 +48,11 @@ body {
 }
 
 /*Inputs*/
-input {
+button {
   width: 100px; 
+  height: 100px;
+  font-size: large;
+  text-align: center;
 }
 
 .input {
@@ -75,9 +76,8 @@ input {
   margin: 30px;
 }
 
-.submit input {
+.submit button {
   padding: 10px 60px;
-  font-size: large;
 }
 
 /*Fields*/
@@ -98,3 +98,4 @@ input {
   height: 300px;
 }
 
+/*Field Layouts*/
