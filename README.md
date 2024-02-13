@@ -50,7 +50,7 @@ Miscellaneous (ADD LATER):
 - Maintenance and Livestreams will only count every (patch or 42 days), if below 42 days then do not include.
 
 # Expected Outputs
-- For Full Cycles (Per 75 Pulls)
+- For Full Cycles (Per 90 Pulls)
 - For Quarter Cycles (Per 75 Pulls)
 - With/Without Welkin
 - With/Without BattlePass
