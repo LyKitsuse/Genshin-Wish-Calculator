@@ -2,9 +2,10 @@
 A Genshin Impact 5 Star Predictor and Primogem Calculator which outputs the odds of getting N amounts of 5 stars or primogem/Intertwined Fate left
 
 # TODO
-- Add Wishing Screen as BG
+- Add Spiral Abyss Calculation
+- Toggle for possible redemption for Starglitter + Strdust after wishes
+- Add 50/50 smthng
 - Add Genshin Font
-- 
 
 # Things to Keep in mind! (Dev Notes)
 For this to work, we must be able to determine what the:
