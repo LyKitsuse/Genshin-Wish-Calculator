@@ -67,6 +67,10 @@ button {
   justify-content: center;
 }
 
+h4 {
+  text-align: center;
+}
+
 /*Submit*/
 .submit {
   display: flex;

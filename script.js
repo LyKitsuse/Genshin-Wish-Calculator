@@ -85,13 +85,13 @@ function eventsAndRewards() {
   return primogemCount;
 }
 
-let abyssFloor9 = 0;
-let abyssFloor10 = 0;
-let abyssFloor11 = 0;
-let abyssFloor12 = 0;
+let abyssFloor9 = document.querySelector('#floor9').value;
+let abyssFloor10 = document.querySelector('#floor10').value;
+let abyssFloor11 = document.querySelector('#floor11').value;
+let abyssFloor12 = document.querySelector('#floor12').value;
 
 // TODO: Create a function that detects the number of stars on spiral abyss and convert it into primos
-function spiralAbyssCalculator(abyssFloor9, abyssFloor10, abyssFloor11, abyssFloor12) {
+function spiralAbyssCalculator() {
   let primogemCount = 0;
   // Every 3 full stars in the abyss + 50; Max 9 Stars
   // Floor 9
@@ -110,6 +110,8 @@ function starDetection(stardustCount, starglitterCount, wishCount, numDays) {
   // Converts wishes to number of 4 stars
   // Converts wishes to number of 5 stars 
   // Converts days to stardust
+
+  // Add conversion from number of cycles per patch
 }
 
 // Calculate when btn is pressed
@@ -138,10 +140,9 @@ let hardPityDOM = document.querySelector('#hardPity');
 function calculate() {
   let dailies = dailiesToFates();
   let events = eventsAndRewards();
-  // let abyss = spiralAbyssCalculator();
+  let abyss = spiralAbyssCalculator();
 
-  // let totalPrimo = dailies + events + abyss;
-  let totalPrimo = dailies + events + parseInt(currentPrimos.value);
+  let totalPrimo = dailies + events + parseInt(currentPrimos.value) + abyss;
   let totalFates = primosToFates(totalPrimo);
 
 
