@@ -85,23 +85,22 @@ function eventsAndRewards() {
   return primogemCount;
 }
 
-let abyssFloor9 = document.querySelector('#floor9').value;
-let abyssFloor10 = document.querySelector('#floor10').value;
-let abyssFloor11 = document.querySelector('#floor11').value;
-let abyssFloor12 = document.querySelector('#floor12').value;
+let abyssFloor9 = document.getElementById('floor9');
+let abyssFloor10 = document.getElementById('floor10');
+let abyssFloor11 = document.getElementById('floor11');
+let abyssFloor12 = document.getElementById('floor12');
 
 // TODO: Create a function that detects the number of stars on spiral abyss and convert it into primos
 function spiralAbyssCalculator() {
   let primogemCount = 0;
-  // Every 3 full stars in the abyss + 50; Max 9 Stars
   // Floor 9
-  primogemCount += (abyssFloor9 / 3) * 50;
+  primogemCount += (parseInt(abyssFloor9.value) / 3) * 50;
   // Floor 10
-  primogemCount += (abyssFloor10 / 3) * 50;
+  primogemCount += (parseInt(abyssFloor10.value) / 3) * 50;
   // Floor 11
-  primogemCount += (abyssFloor11 / 3) * 50;
+  primogemCount += (parseInt(abyssFloor11.value) / 3) * 50;
   // Floor 12
-  primogemCount += (abyssFloor12 / 3) * 50;
+  primogemCount += (parseInt(abyssFloor12.value) / 3) * 50;
   return primogemCount;
 }
 
@@ -144,8 +143,6 @@ function calculate() {
 
   let totalPrimo = dailies + events + parseInt(currentPrimos.value) + abyss;
   let totalFates = primosToFates(totalPrimo);
-
-
 
   // DOM Print
   let softPityCount = totalFates/SOFTPITY;
