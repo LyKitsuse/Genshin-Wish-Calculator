@@ -136,6 +136,8 @@ let hardPityDOM = document.querySelector('#hardPity');
 
 // TODO: Main fucntion to complete the calculation 
 //(Where the current Pity will determine the output as well as add the current IF)
+
+// Comment
 function calculate() {
   let dailies = dailiesToFates();
   let events = eventsAndRewards();
