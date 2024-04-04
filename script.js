@@ -104,15 +104,6 @@ function spiralAbyssCalculator() {
   return primogemCount;
 }
 
-// TODO: A function that checks possible conversions of Starglitter/Dust after wishing
-function starDetection(stardustCount, starglitterCount, wishCount, numDays) {
-  // Converts wishes to number of 4 stars
-  // Converts wishes to number of 5 stars 
-  // Converts days to stardust
-
-  // Add conversion from number of cycles per patch
-}
-
 // Calculate when btn is pressed
 calculateBtn.onclick = calculate;
 
@@ -134,17 +125,13 @@ let softPityDOM = document.querySelector('#softPity');
 let hardPityAppend = document.createElement("h4");
 let hardPityDOM = document.querySelector('#hardPity');
 
-// TODO: Main fucntion to complete the calculation 
-//(Where the current Pity will determine the output as well as add the current IF)
-
-// Comment
 function calculate() {
   let dailies = dailiesToFates();
   let events = eventsAndRewards();
   let abyss = spiralAbyssCalculator();
 
   let totalPrimo = dailies + events + parseInt(currentPrimos.value) + abyss;
-  let totalFates = primosToFates(totalPrimo);
+  let totalFates = primosToFates(totalPrimo) + parseInt(ifCount.value);
 
   // DOM Print
   let softPityCount = totalFates/SOFTPITY;
