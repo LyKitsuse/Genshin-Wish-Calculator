@@ -10,109 +10,107 @@
   <div class="top">  
     <div class="title">
       <h1>Genshin Wish Calcluator</h1>
-      <p>[Insert Logos]</p>
     </div> 
   </div>
 
-  <div class="body">
-    <div class="main">
-      <fieldset class="main field">
-        <div class="pityCount">
-          <h4><label for="currentPity" class="input">Current Pity <input type="text" value="0" id="currentPity"></label></h4>
+  <div class="container">
+    <div class="body">
+      <div class="main">
+        <fieldset class="main field">
+          <div class="pityCount">
+            <h4><label for="currentPity" class="input">Current Pity <input type="text" value="0" id="currentPity"></label></h4>
+          </div>
+          <div class="primoCount">
+            <h4><label for="currentPrimo" class="input">Current Primo <input type="text" value="0" id="currentPrimo"></label></h4>
+          </div>
+          <div class="fatesCount">
+            <h4><label for="ifCount" class="input">Intertwined Fate Count <input type="text" value="0" id="ifCount"></label></h4>
+          </div>
+          <div class="dustCount">
+            <h4><label for="stardustCount" class="input">Stardust Count <input type="text" value="0" id="stardustCount"></label></h4>
+          </div>
+          <div class="glitterCount">
+            <h4><label for="starglitterCount" class="input">Starglitter Count <input type="text" value="0" id="starglitterCount"></label></h4>
+          </div>
+          <div class="daysCount">
+            <h4><label for="numDays" class="input">Days Input <input type="text" value="0" id="numDays"></label></h4>
+          </div>
+          <div class="checkboxes">
+            <h4><div class="checkbox"><input type="checkbox" id="battlepassOwnership"><label for="battlepassOwnership">Battlepass </label></div></h4>
+            <h4><div class="checkbox"><input type="checkbox" id="welkinOwnership"><label for="welkingOwnership">Welkin Moon </label></div></h4>
+            <h4><div class="checkbox"><input type="checkbox" id="fiftyFifty"><label for="fiftyFifty">50/50 </label></div></h4>
+          </div>
+          
+        </fieldset>
+      </div>
+      <div class="abyss">
+        <fieldset class="abyss field">
+          <h3>Spiral Abyss</h3>
+          <label for="floor9">Floor 9</label>
+            <select name="floor9" id="floor9">
+              <option value="0">--</option>
+              <option value="3">3</option>
+              <option value="6">6</option>
+              <option value="9">9</option>
+            </select>
+          
+          <label for="floor10">Floor 10</label>
+            <select name="floor10" id="floor10">
+              <option value="0">--</option>
+              <option value="3">3</option>
+              <option value="6">6</option>
+              <option value="9">9</option>
+            </select>
+          
+          <label for="floor11">Floor 11</label>
+            <select name="floor11" id="floor11">
+              <option value="0">--</option>
+              <option value="3">3</option>
+              <option value="6">6</option>
+              <option value="9">9</option>
+            </select>
+          
+          <label for="floor12">Floor 12</label>
+            <select name="floor12" id="floor12">
+              <option value="0">--</option>
+              <option value="3">3</option>
+              <option value="6">6</option>
+              <option value="9">9</option>
+            </select>
+          
+        </fieldset>
+      </div>
+      <div class="submit">
+        <button id="calculate">Calculate</button>
+      </div>
+    </div>
+
+    <div class="output">
+      <fieldset class="output field">
+          <h3 class="h">Main Output</h3>
+        <div id="totalPrimogemCount">
+          <h4>Total Primogem Count</h4>
         </div>
-        <div class="primoCount">
-          <h4><label for="currentPrimo" class="input">Current Primo <input type="text" value="0" id="currentPrimo"></label></h4>
+        <hr style="width: 350px; margin-bottom: 50px;">
+        <div id="wishCount">
+          <h4>Wish Count</h4>
         </div>
-        <div class="fatesCount">
-          <h4><label for="ifCount" class="input">Intertwined Fate Count <input type="text" value="0" id="ifCount"></label></h4>
+        <hr style="width: 350px; margin-bottom: 50px;">
+        <div id="fourStars">
+          <h4>4 Stars</h4>
         </div>
-        <div class="dustCount">
-          <h4><label for="stardustCount" class="input">Stardust Count <input type="text" value="0" id="stardustCount"></label></h4>
+        <hr style="width: 350px; margin-bottom: 50px;">
+        <div id="softPity">
+          <h4>Soft Pity</h4>
         </div>
-        <div class="glitterCount">
-          <h4><label for="starglitterCount" class="input">Starglitter Count <input type="text" value="0" id="starglitterCount"></label></h4>
+        <hr style="width: 350px; margin-bottom: 50px;">
+        <div id="hardPity">
+          <h4>Hard Pity</h4>
         </div>
-        <div class="daysCount">
-          <h4><label for="numDays" class="input">Days Input <input type="text" value="0" id="numDays"></label></h4>
-        </div>
-        <div class="checkboxes">
-          <h4><div class="checkbox"><input type="checkbox" id="battlepassOwnership"><label for="battlepassOwnership">Battlepass </label></div></h4>
-          <h4><div class="checkbox"><input type="checkbox" id="welkinOwnership"><label for="welkingOwnership">Welkin Moon </label></div></h4>
-          <h4><div class="checkbox"><input type="checkbox" id="fiftyFifty"><label for="fiftyFifty">50/50 </label></div></h4>
-        </div>
-        
       </fieldset>
     </div>
   </div>
   
-  <div class="abyss">
-    <fieldset class="abyss field">
-      <h3>Spiral Abyss</h3>
-      <label for="floor9">Floor 9</label>
-        <select name="floor9" id="floor9">
-          <option value="0">--</option>
-          <option value="3">3</option>
-          <option value="6">6</option>
-          <option value="9">9</option>
-        </select>
-      
-      <label for="floor10">Floor 10</label>
-        <select name="floor10" id="floor10">
-          <option value="0">--</option>
-          <option value="3">3</option>
-          <option value="6">6</option>
-          <option value="9">9</option>
-        </select>
-      
-      <label for="floor11">Floor 11</label>
-        <select name="floor11" id="floor11">
-          <option value="0">--</option>
-          <option value="3">3</option>
-          <option value="6">6</option>
-          <option value="9">9</option>
-        </select>
-      
-      <label for="floor12">Floor 12</label>
-        <select name="floor12" id="floor12">
-          <option value="0">--</option>
-          <option value="3">3</option>
-          <option value="6">6</option>
-          <option value="9">9</option>
-        </select>
-      
-    </fieldset>
-  </div>
-
-  <div class="submit">
-    <button id="calculate">Calculate</button>
-  </div>
-
-  <hr style="width: 350px; margin-bottom: 50px;">
-
-  <div class="output">
-    <fieldset class="output field">
-        <h3 class="h">Main Output</h3>
-      <div id="totalPrimogemCount">
-        <h4>Total Primogem Count</h4>
-      </div>
-      <hr style="width: 350px; margin-bottom: 50px;">
-      <div id="wishCount">
-        <h4>Wish Count</h4>
-      </div>
-      <hr style="width: 350px; margin-bottom: 50px;">
-      <div id="fourStars">
-        <h4>4 Stars</h4>
-      </div>
-      <hr style="width: 350px; margin-bottom: 50px;">
-      <div id="softPity">
-        <h4>Soft Pity</h4>
-      </div>
-      <hr style="width: 350px; margin-bottom: 50px;">
-      <div id="hardPity">
-        <h4>Hard Pity</h4>
-      </div>
-    </fieldset>
-  </div>
   <script src="script.js" defer></script>
 </body>
 </html>

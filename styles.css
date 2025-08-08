@@ -1,104 +1,28 @@
+@import url("genshin-impact.css");
+
+:root {
+  --genshin: HYWenHei, Arial;
+}
+
+@font-face {
+  font-family: HYWenHei;
+  src: url(genshin-impact.woff2) format("woff2"),
+    url(genshin-impact.woff) format("woff"),
+    url(genshin-impact.ttf) format("truetype");
+}
+
 body {
-  margin: 0;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #fea775;
-  
-  
+  font-family: HYWenHei;
 }
 
-/*Footer*/
-.footer {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  margin-top: 100px;
-  background-color: #260b2c;
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
-}
-
-.footer a {
-  text-decoration: none;
-  color: white;
-}
-
-/*Top*/
-.title {
-  text-align: center;
-}
-
-.title h1 {
-  font-weight: 900;
-  font-size: 50px;
-  margin: 20px;
-  margin-bottom: 1px;
-}
-
-/*Body of the HTML*/
-.body, .abyss, .output {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-}
-
-/*Inputs*/
-button {
-  font-size: large;
-  text-align: center;
-}
-
-.input {
-  display: block;
-}
-
-.checkbox {
-  display: block;
-}
-
-/*Others*/
-.h {
+.top {
   display: flex;
   justify-content: center;
+  align-items: center;
+  
 }
 
-h4 {
-  text-align: center;
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
 }
-
-/*Submit*/
-.submit {
-  display: flex;
-  justify-content: center;
-  margin: 30px;
-}
-
-.submit button {
-  width: 200px;
-  height: 100px;
-}
-
-/*Fields*/
-.main.field {
-  width: 400px;
-  height: 500px;
-  max-width: 400px;
-  max-height: 500px;
-}
-
-.abyss.field {
-  width: 400px;
-  height: 300px;
-}
-
-.output.field {
-  width: 400px;
-  height: 300px;
-}
-
-/*Field Layouts*/
